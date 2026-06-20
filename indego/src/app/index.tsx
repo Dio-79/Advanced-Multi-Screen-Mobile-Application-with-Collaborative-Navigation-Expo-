@@ -99,7 +99,6 @@ export default function Index() {
   return (
     <SafeAreaView style={styles.wrapper} edges={["top"]}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        {/* Top utility bar */}
         <View style={styles.container}>
           <ScrollView
             horizontal
