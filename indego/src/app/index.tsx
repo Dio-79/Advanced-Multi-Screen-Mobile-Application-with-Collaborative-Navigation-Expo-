@@ -196,7 +196,16 @@ export default function Index() {
             <TouchableOpacity
               key={book.id}
               style={styles.bookCard}
-              onPress={() => router.push("/")}
+              onPress={() =>
+                router.push({
+                  pathname: "/bookdetails",
+                  params: {
+                    title: book.title,
+                    author: book.author,
+                    color: book.color,
+                  },
+                })
+              }
               activeOpacity={0.85}
             >
               <View style={[styles.bookCover, { backgroundColor: book.color }]} />
@@ -356,7 +365,7 @@ const styles = StyleSheet.create({
     borderColor: "#ccc",
     borderRadius: 25,
     paddingVertical: 12,
-    backgroundColor: "##f9f9f9",
+    backgroundColor: "#fffff",
     marginTop: 10,
   },
   advertController: {
