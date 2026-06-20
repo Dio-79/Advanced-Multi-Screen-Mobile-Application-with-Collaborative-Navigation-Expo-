@@ -356,7 +356,7 @@ const styles = StyleSheet.create({
     borderColor: "#ccc",
     borderRadius: 25,
     paddingVertical: 12,
-    backgroundColor: "#f9f9f9",
+    backgroundColor: "##f9f9f9",
     marginTop: 10,
   },
   advertController: {
