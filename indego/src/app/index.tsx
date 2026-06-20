@@ -7,7 +7,6 @@ import {
   Image,
   TouchableOpacity,
   TextInput,
-  Linking,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
@@ -108,7 +107,7 @@ export default function Index() {
             contentContainerStyle={styles.Header}
           >
             {navLinks.map((link, i) => (
-              <TouchableOpacity key={link.label} onPress={link.onPress}>
+              <TouchableOpacity key={`${link.label}-${i}`} onPress={link.onPress}>
                 <Text style={styles.headertext}>
                   {link.label}
                   {i < navLinks.length - 1 ? " |" : ""}
@@ -153,8 +152,8 @@ export default function Index() {
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={styles.trendingicon}
           >
-            {categories.map((category) => (
-              <TouchableOpacity key={category} onPress={() => router.push("/")}>
+            {categories.map((category, index) => (
+              <TouchableOpacity key={`${category}-${index}`} onPress={() => router.push("/")}>
                 <Text style={styles.tendingicontext}>{category}</Text>
               </TouchableOpacity>
             ))}
@@ -323,6 +322,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 18,
   },
   searchPlaceholder: {
+    width: '100%',
     color: "#444444",
     fontSize: 14,
     paddingVertical: 8,
@@ -413,6 +413,7 @@ const styles = StyleSheet.create({
     textDecorationLine: "underline",
   },
   bookRow: {
+    flexDirection: "row",
     paddingHorizontal: 20,
     gap: 16,
   },
